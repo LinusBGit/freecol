@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: alash325/javaant:latest
 
     steps:
     - uses: actions/checkout@v3
