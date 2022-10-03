@@ -21,9 +21,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Ant
+    - name: Build
       run: ant -noinput -buildfile build.xml
-    - name: Test with An
+    - name: Test
       run: ant -lib test/lib/junit.jar -Dtest=AllTests testall
     - name: Deploy
       uses: actions/deploy-pages@v1
