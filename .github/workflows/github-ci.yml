@@ -30,7 +30,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: artifact
-        path: build/report/
+        path: ./build/report/
     - uses: actions/deploy-pages@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
