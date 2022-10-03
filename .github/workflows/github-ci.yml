@@ -31,8 +31,7 @@ jobs:
       with:
         name: artifact
         path: ./build/report/
-    - uses: actions/deploy-pages@v1
+    - uses: actions/github-pages-deploy-action@v4
       with:
-        name: artifact
-        path: ./build/report/
+        folder: ./build/report/
         github_token: ${{ secrets.GITHUB_TOKEN }}
