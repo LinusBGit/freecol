@@ -33,5 +33,5 @@ jobs:
         path: ./build/report/
     - uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: ~/Desktop/freecol/freecol/build/report
+        folder: ./build/report
         github_token: ${{ secrets.GITHUB_TOKEN }}
