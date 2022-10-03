@@ -25,8 +25,8 @@ jobs:
       run: ant -noinput -buildfile build.xml
     - name: Test
       run: ant -lib test/lib/junit.jar -Dtest=AllTests testall
-    - name: Deploy
-      uses: actions/deploy-pages@v1
+    - uses: actions/deploy-pages@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         folder: build/report
+      
