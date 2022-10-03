@@ -33,5 +33,5 @@ jobs:
         path: ./build/report/
     - uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: build/report
+        folder: build
         github_token: ${{ secrets.GITHUB_TOKEN }}
