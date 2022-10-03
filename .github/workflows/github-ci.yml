@@ -31,7 +31,20 @@ jobs:
       with:
         name: artifact
         path: ./build/report/
-    - uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: ./build/report
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+  
+  deploy:
+    needs: build
+    
+    permissions:
+      pages: write
+      id-token: write
+      
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v1
