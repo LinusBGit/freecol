@@ -23,7 +23,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build
+    - name: Build and Test
       run: ant -noinput -buildfile build.xml
     - name: Test
       run: ant -lib test/lib/junit.jar -Dtest=AllTests testall
