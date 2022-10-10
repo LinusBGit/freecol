@@ -9,7 +9,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  build-and-test:
 
     runs-on: ubuntu-latest
     container: alash325/javaant:latest
@@ -23,17 +23,13 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build and Test
+    - name: Build
       run: ant -noinput -buildfile build.xml
     - name: Test
       run: ant -lib test/lib/junit.jar -Dtest=AllTests testall
-    - uses: actions/upload-artifact@v3
-      with:
-        name: github-pages
-        path: ./build/report/
   
   deploy:
-    needs: build
+    needs: build-and-test
     
     permissions:
       pages: write
@@ -45,6 +41,10 @@ jobs:
       
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: ./build/report/
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
